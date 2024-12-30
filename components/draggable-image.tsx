@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { RefreshCcw } from 'lucide-react'
 import { CanvasImage, GenerationType, PromptHistory } from '../types/canvas'
 import Image from 'next/image'
+import { cn } from "@/lib/utils"
 
 interface DraggableImageProps {
   image: CanvasImage
