@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { Button } from "@/components/ui/button"
 import { RefreshCcw } from 'lucide-react'
 import { CanvasImage, GenerationType, PromptHistory } from '../types/canvas'
+import Image from 'next/image'
 
 interface DraggableImageProps {
   image: CanvasImage
@@ -84,11 +85,19 @@ export function DraggableImage({
             <RefreshCcw className="h-4 w-4" />
           </Button>
         </div>
-        <img
+        <Image
           src={image.src}
           alt={image.prompt}
-          className="w-64 h-64 object-cover rounded-lg shadow-lg"
-          draggable={false}
+          width={200}
+          height={200}
+          className={cn(
+            'rounded-lg shadow-lg transition-transform',
+            isSelected && 'ring-2 ring-blue-500'
+          )}
+          style={{
+            transform: `translate(${image.x}px, ${image.y}px)`,
+            cursor: isDragging ? 'grabbing' : 'grab',
+          }}
         />
       </div>
     </div>

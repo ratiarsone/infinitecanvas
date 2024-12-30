@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { nanoid } from 'nanoid'
 import { AddButton } from '../components/add-button'
 import { BoardMenu } from '../components/board-menu'
@@ -399,6 +399,11 @@ export default function Page() {
     })
   }
 
+  const handleMouseMove = useCallback((_: MouseEvent, { x, y }: { x: number; y: number }) => {
+    if (isDrawing) {
+      setPoints(prevPoints => [...prevPoints, { x, y }]);
+    }
+  }, [isDrawing]);
 
   return (
     <main className="relative w-full h-screen overflow-hidden">

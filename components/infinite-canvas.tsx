@@ -1,13 +1,12 @@
 'use client'
 
-import { useRef, useCallback, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
 import { CanvasImage, CanvasText, GenerationType, PromptHistory } from '../types/canvas'
 import { DraggableImage } from './draggable-image'
 import { DraggableText } from './draggable-text'
 import { SelectionOverlay } from './selection-overlay'
 import { GroupButton } from './group-button'
-import { nanoid } from 'nanoid'
 import { SelectionCount } from './selection-count'
 
 interface InfiniteCanvasProps {

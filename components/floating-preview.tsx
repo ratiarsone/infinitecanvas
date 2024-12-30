@@ -1,12 +1,12 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 interface FloatingPreviewProps {
-  imageSrc: string
-  type: string
-  version: number
-  prompt: string
+  prompt: string;
+  imageUrl: string | null;
+  position: { x: number; y: number };
 }
 
 export function FloatingPreview({ imageSrc, type, version, prompt }: FloatingPreviewProps) {
@@ -33,11 +33,15 @@ export function FloatingPreview({ imageSrc, type, version, prompt }: FloatingPre
         style={{ left: position.x, top: position.y }}
       >
         <div className="relative">
-          <img
-            src={imageSrc}
-            alt="Preview"
-            className="w-64 h-64 object-cover rounded-lg shadow-lg opacity-70"
-          />
+          {imageUrl && (
+            <Image
+              src={imageUrl}
+              alt={prompt}
+              width={256}
+              height={256}
+              className="w-64 h-64 object-cover rounded-lg shadow-lg"
+            />
+          )}
         </div>
       </div>
     </>
