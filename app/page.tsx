@@ -399,12 +399,6 @@ export default function Page() {
     })
   }
 
-  const handleMouseMove = useCallback((_: MouseEvent, position: { x: number; y: number }) => {
-    if (isDrawing) {
-      setPoints(prevPoints => [...prevPoints, position]);
-    }
-  }, [isDrawing]);
-
   return (
     <main className="relative w-full h-screen overflow-hidden">
       <BoardMenu

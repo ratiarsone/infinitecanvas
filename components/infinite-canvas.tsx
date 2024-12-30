@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
 import { CanvasImage, CanvasText, GenerationType, PromptHistory } from '../types/canvas'
 import { DraggableImage } from './draggable-image'
